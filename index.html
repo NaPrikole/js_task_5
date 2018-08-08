@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>task_5_js</title>
+		<link href="main.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="app">
+			<div class="product_list">
+				<h3>Products list</h3>
+				<table border="2" cellspacing="0">
+					<tr>
+						<th>Title</th>
+						<th>Price</th>
+						<th>Add to cart</th>
+					</tr>
+					<tr v-for="(product, i) in products_array">
+						<td>
+							{{ product.title }}
+						</td>
+						<td>
+							{{ product.price }}
+						</td>
+						<td>
+							<button v-on:click="add_to_cart(i, product.id)">Add to cart</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="cart">
+				<h3>Cart</h3>
+				<table border="2" cellspacing="0">
+					<tr>
+						<th>Title</th>
+						<th>Price</th>
+						<th>Remove</th>
+					</tr>
+					<tr v-for="(product, i) in cart">
+						<td>
+							{{ product.name }}
+						</td>
+						<td>
+							{{ product.price }}
+						</td>
+						<td>
+							<button v-on:click="remove_from_cart(i, product.id)">Remove from cart</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Total price: </td>
+						<td colspan="2">{{ summa }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
